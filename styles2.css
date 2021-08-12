@@ -1,0 +1,67 @@
+/* Colores generales como variables */
+:root{
+    --color-font-encabezado: ;
+    --color-font-cuerpo: ;
+    --color-backg-principal: ;
+    --font1: 'ABeeZee', sans-serif;
+    --font2: 'Fredoka One', cursive;
+    --font3: 'Balsamiq Sans', cursive;
+}
+
+/* 100*10/16 = 62.5 Para facilitar el uso de ems*/
+html{
+    font-size: 62.5%;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#encabezado{
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    font-family: var(--font1);
+    text-align: center;
+}
+
+/* Contenido gral donde se encontrarán las opciones de calculo */
+#cont-block{
+    height: 65vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+}
+
+/* Contenido de las opciones de cálculo, ademas de ser un grid-item es un grid */
+#contenido{
+    display: grid;
+    width: 60%;
+    grid-template-columns: repeat(auto-fill, minmax(25em, 1fr));
+    margin: 0 auto;
+    padding-top: 4em;
+}
+/* Cada una de las celdas del contenido, ademas de ser grid-item es un flexbox */
+.calculos-items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.1em solid gray;
+    text-decoration: none;
+    font-size: 2.5em;
+    color: black;
+    font-family: var(--font3);
+    text-align: center;
+}
+
+#footer{
+    height: 15vh;
+}
+
+
+
+
