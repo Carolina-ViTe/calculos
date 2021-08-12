@@ -1,16 +1,39 @@
-/* Colores generales como variables */
+/* Variables */
 :root{
-    --color-font-encabezado: ;
-    --color-font-cuerpo: ;
-    --color-backg-principal: ;
+    --color-font-encabezado: #2d2d86;
+    --color-font-cuerpo: white;
+    --color-backg-principal: #000e1acb;
+    --color-backg-opciones: #00101b;
+    --color-bordes: #77ebff;
     --font1: 'ABeeZee', sans-serif;
     --font2: 'Fredoka One', cursive;
     --font3: 'Balsamiq Sans', cursive;
 }
 
-/* 100*10/16 = 62.5 Para facilitar el uso de ems*/
+/* 100*10/16 = 62.5 Para facilitar el uso de em*/
 html{
     font-size: 62.5%;
+}
+
+/* Primer corte 1080/16 = 67.5 rem */
+@media (max-width: 67.5rem){
+    html{
+        font-size: 58%;
+    }
+}
+
+/* Segundo corte 800/16 = 50 rem */
+@media (max-width: 50rem){
+    html{
+        font-size: 50%;
+    }
+}
+
+/* Tercer corte 450/16 = 28.15 rem */
+@media (max-width: 28.15rem){
+    html{
+        font-size: 45%;
+    }
 }
 
 *{
@@ -19,14 +42,20 @@ html{
     box-sizing: border-box;
 }
 
+body{
+    background: var(--color-backg-principal);
+}
+
 #encabezado{
     height: 20vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2.5em;
+    font-size: 2em;
     font-family: var(--font1);
     text-align: center;
+    padding: 1.5em;
+    color: var(--color-font-encabezado);
 }
 
 /* Contenido gral donde se encontrarán las opciones de calculo */
@@ -42,20 +71,31 @@ html{
     display: grid;
     width: 60%;
     grid-template-columns: repeat(auto-fill, minmax(25em, 1fr));
+    gap: 0.5em;
     margin: 0 auto;
     padding-top: 4em;
+    
+}
+
+/* 680/16 = 42.5rem */
+@media (max-width: 42.5rem){
+    #contenido{
+        width: 80%;
+    }
 }
 /* Cada una de las celdas del contenido, ademas de ser grid-item es un flexbox */
 .calculos-items{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 0.1em solid gray;
+    border: 0.1em solid var(--color-bordes);
     text-decoration: none;
     font-size: 2.5em;
-    color: black;
+    color: var(--color-font-cuerpo);
     font-family: var(--font3);
     text-align: center;
+    border-radius: 0.5em;
+    background: var(--color-backg-opciones);
 }
 
 #footer{
