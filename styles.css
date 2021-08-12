@@ -1,0 +1,64 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* Calculo del font size para facilitar el uso de los em */
+/* 10*100/16 = 62.5 ahora 1em = 10*/
+html{
+    font-size: 62.5%;
+}
+
+/* Primer corte de 0 a 880px que si lo calculamos en rem seria 880/16 = 55rem */
+@media (max-width: 55rem){
+    html{
+        font-size: 55%;
+    }
+}
+
+/* Primer corte de 0 a 760px que si lo calculamos en rem seria 760/16 = 47.5rem */
+@media (max-width: 47.5rem){
+    html{
+        font-size: 50%;
+    }
+}
+
+#encabezado{                            
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    text-align: center; 
+}
+
+#cont-block{
+    height: 65vh;
+    padding-top: 8rem;
+}
+
+#contenido{     
+    max-width: 65%; 
+    height: 70%;                      
+    display: grid;
+    grid-template-columns: repeat( auto-fill, minmax(27rem, 1fr) );
+    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
+}
+
+.calculos-items{   
+    display: flex;  
+    align-items: center;  
+    justify-content: center;                 
+    text-decoration: none;
+    color: black;
+    font-size: 2.5em;
+    border: 0.1rem solid gray;
+    padding: 1rem;
+}
+
+#footer{                                
+    height: 15vh;
+}
+
