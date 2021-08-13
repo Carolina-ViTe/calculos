@@ -46,6 +46,8 @@ body{
     background: var(--color-backg-principal);
 }
 
+
+
 .encabezado{
     height: 20vh;
     display: flex;
@@ -112,6 +114,107 @@ body{
 /* -------------------------CACLCULO DE AREAS / PERIMETROS----------------------------- */
 
 /* El encabezado es el mismo estilo que el de la pagina de inicio */
+
+#cont-figuras{
+    height: 20vh;
+    width: 70%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(22em, 1fr));
+    justify-content: center;
+    align-items: center;
+    color: var(--color-font-cuerpo);
+    font-family: var(--font3);
+    font-size: 2em;
+    text-align: center;
+    /* border: 1px solid white; */
+}
+
+/* .elegir{
+    border: 1px solid white;
+} */
+
+select{
+    width: 20em;
+    height: 2.5em;
+    border-radius: 0.3em;
+    margin: 0.5em;
+    background: transparent;
+    border: 0.1em solid var(--color-font-encabezado);
+    color: var(--color-font-encabezado);
+    outline: none;
+    padding-left: 1em;
+    font-family: var(--font3);
+    transition: all 300ms ease;
+
+}
+
+option{
+    background: var(--color-backg-principal);
+}
+
+
+#datos{
+    height: 45vh;
+    text-align: center;  
+    padding-top: 2em; 
+    /* border: 1px solid white; */
+}
+
+#solicitud{
+    font-family: var(--font1);
+    color: var(--color-font-encabezado);
+}
+
+#requisitos{
+    font-family: var(--font3);
+    color: var(--color-font-cuerpo);
+    font-size: 1.5em;
+    margin: 1em auto;
+    width: 70%;
+}
+
+#requisitos a{
+    text-decoration: none;
+    color: var(--color-font-encabezado)
+}
+
+#especificar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#especificar p{
+    font-family: var(--font3);
+    color: var(--color-font-cuerpo);
+    font-size: 1.5em;
+}
+
+#especificar button{
+    font-family: var(--font3);
+    color: var(--color-backg-principal);
+    background: var(--color-font-encabezado);
+    font-size: 1.5em;
+    font-weight: 700;
+    width: 10em;
+    height: 2.2em;
+    border-radius: 0.3em;
+    border: none;
+    outline: none;
+}
+
+#resultado{
+    height: 15vh;
+    font-family: var(--font1);
+    color: var(--color-font-encabezado);
+    font-size: 2em;
+}
+
+#res{
+    text-align: center;
+}
+
 
 
 
