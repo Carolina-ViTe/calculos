@@ -1,10 +1,9 @@
 /* Variables */
 :root{
-    --color-font-encabezado: #2d2d86;
+    --color-font-encabezado: #77ebff;
     --color-font-cuerpo: white;
     --color-backg-principal: #000e1acb;
     --color-backg-opciones: #00101b;
-    --color-bordes: #77ebff;
     --font1: 'ABeeZee', sans-serif;
     --font2: 'Fredoka One', cursive;
     --font3: 'Balsamiq Sans', cursive;
@@ -46,7 +45,7 @@ body{
     background: var(--color-backg-principal);
 }
 
-#encabezado{
+.encabezado{
     height: 20vh;
     display: flex;
     justify-content: center;
@@ -88,7 +87,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 0.1em solid var(--color-bordes);
+    border: 0.1em solid var(--color-font-encabezado);
     text-decoration: none;
     font-size: 2.5em;
     color: var(--color-font-cuerpo);
@@ -96,6 +95,7 @@ body{
     text-align: center;
     border-radius: 0.5em;
     background: var(--color-backg-opciones);
+    box-shadow: 0em 0em 0.2em var(--color-backg-opciones), 0.1em 0.1em 0.4em var(--color-backg-opciones), 0.2em 0.2em 1em var(--color-backg-opciones);
 }
 
 #footer{

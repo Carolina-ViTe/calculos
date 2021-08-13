@@ -21,7 +21,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header id="encabezado">
+    <!-- Página de inicio -->
+    <header class="encabezado">
         <h1>¿Qué cálculo deseas realizar?</h1>
     </header>
     <!-- Contenido grid donde estarán las opciones de cálculo -->
@@ -37,6 +38,33 @@
 
     </div>
     <!-- Termina contenido grid donde estarán las opciones de cálculo -->
-    <section id="footer"></section>        
+    <section id="footer"></section>  
+    <!-- Fin de página de inicio -->
+
+    <!-- Inicia página de Areas / perímetros -->
+    <header class="encabezado">
+        <h1>Cálculo de figuras geométricas</h1>
+    </header>
+    <!-- Contenido grid donde estarán las opciones de operaciones geométricas -->
+    <div id="cont-figuras">
+        <div id="figuras">
+            <p>Elige la fígura que quieres calcular</p>
+            <select name="figura">
+                <option value="cuadrado">Cuadrado</option>
+                <option value="rectangulo">Rectángulo</option>
+                <option value="triangulo">Triángulo</option>
+                <option value="circulo">Círculo</option>
+            </select>
+        </div>
+        <div id="area-perimetro">
+            <p>Elige la operación que requieras hacer</p>
+            <select name="operación">
+                <option value="area">Área</option>
+                <option value="perimetro">Perímetro</option>
+            </select>
+        </div>
+    </div>
+    <!-- Termina contenido grid donde estarán las opciones de cálculo -->
+    <section id="footer"></section> 
 </body>
 </html>
