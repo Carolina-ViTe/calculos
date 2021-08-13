@@ -4,6 +4,7 @@
     --color-font-cuerpo: white;
     --color-backg-principal: #000e1acb;
     --color-backg-opciones: #00101b;
+    --color-backg-pulsado: #000e1a;
     --font1: 'ABeeZee', sans-serif;
     --font2: 'Fredoka One', cursive;
     --font3: 'Balsamiq Sans', cursive;
@@ -98,9 +99,19 @@ body{
     box-shadow: 0em 0em 0.2em var(--color-backg-opciones), 0.1em 0.1em 0.4em var(--color-backg-opciones), 0.2em 0.2em 1em var(--color-backg-opciones);
 }
 
+.calculos-items:active{
+    box-shadow: none;
+    background: var(--color-backg-pulsado);
+}
+
 #footer{
     height: 15vh;
 }
+
+
+/* -------------------------CACLCULO DE AREAS / PERIMETROS----------------------------- */
+
+/* El encabezado es el mismo estilo que el de la pagina de inicio */
 
 
 

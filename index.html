@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,6 +21,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- Página de inicio -->
     <header class="encabezado">
@@ -28,17 +30,29 @@
     <!-- Contenido grid donde estarán las opciones de cálculo -->
     <div id="cont-block">
         <div id="contenido">
-            <a class="calculos-items" href="#"><p>Calculadora</p></a>
-            <a class="calculos-items" href="#"><p>Áreas/perímetros</p></a>
-            <a class="calculos-items" href="#"><p>Números romanos</p></a>
-            <a class="calculos-items" href="#"><p>°F a °C / °C a °F</p></a>
-            <a class="calculos-items" href="#"><p>Peso a dólar</p></a>
-            <a class="calculos-items" href="#"><p>Hora</p></a>
+            <a class="calculos-items calc" href="#">
+                <p>Calculadora</p>
+            </a>
+            <a class="calculos-items ap" href="#">
+                <p>Áreas/perímetros</p>
+            </a>
+            <a class="calculos-items nr" href="#">
+                <p>Números romanos</p>
+            </a>
+            <a class="calculos-items cffc" href="#">
+                <p>°F a °C / °C a °F</p>
+            </a>
+            <a class="calculos-items um" href="#">
+                <p>Unidades de medidas</p>
+            </a>
+            <a class="calculos-items hr" href="#">
+                <p>Hora</p>
+            </a>
         </div>
 
     </div>
     <!-- Termina contenido grid donde estarán las opciones de cálculo -->
-    <section id="footer"></section>  
+    <section id="footer"></section>
     <!-- Fin de página de inicio -->
 
     <!-- Inicia página de Areas / perímetros -->
@@ -64,7 +78,46 @@
             </select>
         </div>
     </div>
-    <!-- Termina contenido grid donde estarán las opciones de cálculo -->
-    <section id="footer"></section> 
+    <!-- Termina contenido grid donde estarán las opciones de operaciones geométricas -->
+
+    <!-- Inicia contenido grid, donde estará el ingreso de datos -->
+    <div id="datos">
+        <h1 id="solicitud">Ingresa los datos que se te piden a continuación</h1>
+        <p id="requisitos">
+            Los datos qe vas a ingresar, deberán estar en la misma unidad de medida, por ejemplo todos los
+            datos deberán estar en milimetros, centímetros, metros o kilómetros, si quieres una unidad de medida en especial, te sugiero
+            ir al conversor de unidades de medidas.
+        </p>
+        <div id="especificar">
+            <p id="especificar-u">¿En que unidad de medida se encuentran todos tus datos?</p>
+            <select name="um">
+                <option value="ml">Milimetros</option>
+                <option value="cm">Centímetros</option>
+                <option value="m">Metros</option>
+                <option value="km">kilómetros</option>
+            </select>
+        </div>
+        <!-- <div class="ingresa-datos cuadrado">
+
+        </div>
+        <div class="ingresa-datos rectangulo">
+
+        </div>
+        <div class="ingresa-datos triangulo">
+
+        </div>
+        <div class="ingresa-datos circulo">
+
+        </div> -->
+    </div>
+    <!-- Inicia contenido grid, donde estará el ingreso de datos -->
+
+    <!-- Inicia contenido grid, donde se mostrará el resultado -->
+    <div id="resultado">
+        <p id="res">El resultado de tu operación es:</p>
+        <div id="resultado"></div>
+    </div>
+    <!-- Termina contenido grid, donde mostrará el resultado -->
 </body>
+
 </html>
