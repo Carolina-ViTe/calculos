@@ -164,7 +164,24 @@ option{
 #creacion{
     display: flex;
     justify-content: center;
+    flex-direction: row;
 }
+
+.cuadro, .rect, .rect2, .tria, .tria2, .tria3, .cir{
+    width: 7em;
+    height: 2.5em;
+    border-radius: 0.3em;
+    margin: 1em;
+    background: transparent;
+    border: 0.1em solid var(--color-font-encabezado);
+    color: var(--color-font-encabezado);
+    outline: none;
+    padding-left: 1em;
+    font-family: var(--font3);
+    appearance: none;
+}
+
+
 
 #solicitud{
     font-family: var(--font1);
