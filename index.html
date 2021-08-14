@@ -63,7 +63,8 @@
     <div id="cont-figuras">
         <div class="elegir">
             <p>Elige la fígura que quieres calcular</p>
-            <select name="figura">
+            <select name="figurass" id="figura">
+                <option value="default">Elige una figura</option>
                 <option value="cuadrado">Cuadrado</option>
                 <option value="rectangulo">Rectángulo</option>
                 <option value="triangulo">Triángulo</option>
@@ -72,7 +73,7 @@
         </div>
         <div class="elegir">
             <p>Elige la operación que requieras hacer</p>
-            <select name="operación">
+            <select name="operaciónn" id="operacion">
                 <option value="area">Área</option>
                 <option value="perimetro">Perímetro</option>
             </select>
@@ -88,29 +89,21 @@
             datos deberán estar en milimetros, centímetros, metros o kilómetros, si quieres una unidad de medida en especial, te sugiero
             ir al <a href="#">conversor de unidades de medidas</a>.
         </p>
-        <div id="">
-            <div class="ingresa-datos cuadrado">
-
-            </div>
-            <div class="ingresa-datos rectangulo">
-
-            </div>
-            <div class="ingresa-datos triangulo">
-
-            </div>
-            <div class="ingresa-datos circulo">
-
-            </div>
+        <div id="creacion">
+            <div class="ingresa-datos" id="cuadrado"></div>
+            <div class="ingresa-datos" id="rectangulo"></div>
+            <div class="ingresa-datos" id="triangulo"></div>
+            <div class="ingresa-datos" id="circulo"></div>
         </div>
         <div id="especificar">
             <p>¿En que unidad de medida se encuentran todos tus datos?</p>
-            <select name="um" required>
+            <select name="unidad-medida" id="um" required>
                 <option value="ml">Milimetros</option>
                 <option value="cm">Centímetros</option>
                 <option value="m">Metros</option>
                 <option value="km">kilómetros</option>
             </select>
-            <button>Calcular</button>
+            <button id="calcular">Calcular</button>
         </div>
     </div>
     <!-- Inicia contenido grid, donde estará el ingreso de datos -->
@@ -123,4 +116,5 @@
     <!-- Termina contenido grid, donde mostrará el resultado -->
 </body>
 
+<script src="codigo.js"></script>
 </html>

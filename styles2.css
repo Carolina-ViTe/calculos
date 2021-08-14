@@ -161,6 +161,11 @@ option{
     /* border: 1px solid white; */
 }
 
+#creacion{
+    display: flex;
+    justify-content: center;
+}
+
 #solicitud{
     font-family: var(--font1);
     color: var(--color-font-encabezado);
