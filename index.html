@@ -63,7 +63,7 @@
     <div id="cont-figuras">
         <div class="elegir">
             <p>Elige la fígura que quieres calcular</p>
-            <select name="figurass" id="figura">
+            <select id="figura" onchange="fig_select()">
                 <option value="default">Elige una figura</option>
                 <option value="cuadrado">Cuadrado</option>
                 <option value="rectangulo">Rectángulo</option>
@@ -73,7 +73,7 @@
         </div>
         <div class="elegir">
             <p>Elige la operación que requieras hacer</p>
-            <select name="operaciónn" id="operacion">
+            <select id="operacion" onchange="fig_select()">
                 <option value="elige">Elige una operación</option>
                 <option value="area">Área</option>
                 <option value="perimetro">Perímetro</option>

@@ -1,83 +1,17 @@
+// var select = document.getElementById("figura");                     //Este me da la seleccion de figura del usuario
+// var operacion = document.getElementById("operacion");               //Este me da la selección de operación del usuario
 
-var select = document.getElementById("figura");
-var operacion = document.getElementById("operacion");
-var um = document.getElementById("um").value;
+const div_cuadrado = document.getElementById("cuadrado");               //Este es el div para crear inputs para cuadrado
+const div_rectangulo = document.getElementById("rectangulo");           //Este es el div para crear inputs para rectangulo
+const div_triangulo = document.getElementById("triangulo");             //Este es el div para crear inputs para triangulo
+const div_circulo = document.getElementById("circulo");                 //Este es el div para crear inputs para circulo
 
-const creacion = document.getElementById("creacion");
-
-const boton_calcular = document.getElementById("calcular");
-
-const cuadrado = document.getElementById("cuadrado");
-const rectangulo = document.getElementById("rectangulo");
-const triangulo = document.getElementById("triangulo");
-const circulo = document.getElementById("circulo");
-
-
-// Obtención de datos segun la figura y operación seleccionada
-
-
-select.addEventListener("change", (event) => {
-    event.preventDefault();
-    let index = null;
-    let target = event.target.value;
-    for (let i = 0; i < figuras.length; i++){
-        if(figuras[i].figura === target){
-            index = i;
-            break;
-        }
-    }
-    operacion.addEventListener("change", (ev)=>{
-        ev.preventDefault();
-        if(cuadrado.hasChildNodes()){
-            var cuadro = document.querySelector(".cuadrado0");
-            cuadrado.removeChild(cuadro);
-        }else if (rectangulo.hasChildNodes()){
-            var rect = document.querySelector(".rectangulo0");
-            var rect2 = document.querySelector(".rectangulo1");
-            rectangulo.removeChild(rect);
-            rectangulo.removeChild(rect2);
-        }else if (triangulo.hasChildNodes()){
-            var tria = document.querySelector(".triangulo0");
-            var tria2 = document.querySelector(".triangulo1");
-            triangulo.removeChild(tria);
-            triangulo.removeChild(tria2);
-            // if(triangulo.lastChild === document.querySelector(".triangulo2")){
-            //     console.log(triangulo.lastChild);
-            //     var tria3 = document.querySelector(".triangulo2");
-            //     triangulo.removeChild(tria3);
-            // }
-        }else if (circulo.hasChildNodes()){
-            var cir = document.querySelector(".circulo0");
-            circulo.removeChild(cir);
-        }
-        if(operacion.value === "area"){
-            for (let j=0; j<figuras[index].area; j++){
-                var input_j = document.createElement("INPUT");
-                input_j.type = "number";
-                input_j.placeholder = figuras[index].areaNombre[j];
-                input_j.classList.add(target+j);
-                document.getElementById(target).appendChild(input_j);
-            }
-        }else if(operacion.value === "perimetro"){
-            for (let j=0; j<figuras[index].perimetro; j++){
-                var input_j = document.createElement("INPUT");
-                input_j.type = "number";
-                input_j.placeholder = figuras[index].perimetroNombre[j];
-                input_j.classList.add(target+j);
-                document.getElementById(target).appendChild(input_j);
-            }
-        }
-    })
-
-});
-
-//Con todo esto intento hacerlo por POO pero lo haré en otra rama
-let figuras = [{
+const FIGURAS = [{
     figura: "cuadrado",
     area: 1,
-    areaNombre: ["Altura"],
+    areaNombre: ["Lado"],
     perimetro: 1,
-    perimetroNombre: ["lado"]
+    perimetroNombre: ["Lado"]
 },{
     figura: "rectangulo",
     area: 2,
@@ -98,8 +32,65 @@ let figuras = [{
     perimetroNombre: ["Radio"]
 }];
 
-// evento que me permite mostrar el resultado de los calculos obtenidos de 
-boton_calcular.addEventListener("click",(e)=>{
-    
-});
 
+
+function fig_select(){
+    var select = document.getElementById("figura").value; 
+    var operacion = document.getElementById("operacion").value;  
+    let index = null;
+    for (let i = 0; i < FIGURAS.length; i++){
+        if(FIGURAS[i].figura === select){
+            index = i;
+            break;
+        }
+    }
+    console.log(select, operacion);
+
+    if(operacion === "area"){
+        delete_inputs();
+        for (let j=0; j<FIGURAS[index].area; j++){
+            var input_j = document.createElement("INPUT");
+            input_j.type = "number";
+            input_j.placeholder = FIGURAS[index].areaNombre[j];
+            input_j.classList.add(select+j);
+            document.getElementById(select).appendChild(input_j);
+        }
+    }else if(operacion === "perimetro"){
+        delete_inputs();
+        for (let j=0; j<FIGURAS[index].perimetro; j++){
+            var input_j = document.createElement("INPUT");
+            input_j.type = "number";
+            input_j.placeholder = FIGURAS[index].perimetroNombre[j];
+            input_j.classList.add(select+j);
+            document.getElementById(select).appendChild(input_j);
+        }
+    }
+}
+
+function delete_inputs(){
+    if(div_cuadrado.hasChildNodes()){
+        while(div_cuadrado.firstChild){
+            div_cuadrado.removeChild(div_cuadrado.firstChild)
+        }
+    }else if (div_rectangulo.hasChildNodes()){
+        while(div_rectangulo.firstChild){
+            div_rectangulo.removeChild(div_rectangulo.firstChild)
+        }
+    }else if (div_triangulo.hasChildNodes()){
+        while(div_triangulo.firstChild){
+            div_triangulo.removeChild(div_triangulo.firstChild)
+        }
+    }else if (div_circulo.hasChildNodes()){
+        while(div_circulo.firstChild){
+            div_circulo.removeChild(div_circulo.firstChild)
+        }
+    }
+}
+ 
+        
+        
+// i, j, k
+        
+        
+        
+        
