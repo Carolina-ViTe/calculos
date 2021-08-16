@@ -216,7 +216,7 @@ option{
     font-size: 1.5em;
 }
 
-#especificar button{
+#calcular{
     font-family: var(--font3);
     color: var(--color-backg-principal);
     background: var(--color-font-encabezado);
@@ -224,6 +224,7 @@ option{
     font-weight: 700;
     width: 10em;
     height: 2.2em;
+    margin-top: 1em;
     border-radius: 0.3em;
     border: none;
     outline: none;
@@ -236,8 +237,10 @@ option{
     font-size: 2em;
 }
 
-#res{
+#resultado_total{
     text-align: center;
+    font-size: 3em;
+    /* text-shadow: 0.05em 0.05em 0.15em var(--color-font-encabezado); */
 }
 
 

@@ -90,29 +90,28 @@
             datos deberán estar en milimetros, centímetros, metros o kilómetros, si quieres una unidad de medida en especial, te sugiero
             ir al <a href="#">conversor de unidades de medidas</a>.
         </p>
+        <div id="especificar">
+            <p>¿En que unidad de medida se encuentran todos tus datos?</p>
+            <select name="unidad-medida" id="um" onchange="fig_select()" required>
+                <option value="mm">Milimetros</option>
+                <option value="cm">Centímetros</option>
+                <option value="m">Metros</option>
+                <option value="km">kilómetros</option>
+            </select>
+        </div>
         <div id="creacion">
             <div class="ingresa-datos" id="cuadrado"></div>
             <div class="ingresa-datos" id="rectangulo"></div>
             <div class="ingresa-datos" id="triangulo"></div>
             <div class="ingresa-datos" id="circulo"></div>
         </div>
-        <div id="especificar">
-            <p>¿En que unidad de medida se encuentran todos tus datos?</p>
-            <select name="unidad-medida" id="um" required>
-                <option value="um ml">Milimetros</option>
-                <option value="um cm">Centímetros</option>
-                <option value="um m">Metros</option>
-                <option value="um km">kilómetros</option>
-            </select>
-            <button id="calcular">Calcular</button>
-        </div>
+        <button id="calcular">Calcular</button>
     </div>
     <!-- Inicia contenido grid, donde estará el ingreso de datos -->
 
     <!-- Inicia contenido grid, donde se mostrará el resultado -->
     <div id="resultado">
-        <p id="res">El resultado de tu operación es:</p>
-        <div id="resultado"></div>
+        <div id="resulta"></div>
     </div>
     <!-- Termina contenido grid, donde mostrará el resultado -->
 </body>
