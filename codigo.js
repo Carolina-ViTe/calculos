@@ -76,40 +76,24 @@ function fig_select(){
         if(operacion === "area"){
             if (select === "cuadrado"){
                 document.getElementById("cuadrado").childNodes;
-                let valor = document.querySelector(".cuadrado0");
-                if(valor.value < 0){
-                    area = NaN; 
-                } else {
-                    area = parseFloat(valor.value) * parseFloat(valor.value);
-                }
+                var valor = document.querySelector(".cuadrado0");
+                area = parseFloat(valor.value) * parseFloat(valor.value);
             } else if (select === "rectangulo"){
                 document.getElementById("cuadrado").childNodes;
-                let valor = document.querySelector(".rectangulo0");
-                let valor1 = document.querySelector(".rectangulo1");
-                if(valor.value < 0 || valor1.value < 0){
-                    area = NaN; 
-                } else {
-                    area = parseFloat(valor.value) * parseFloat(valor1.value);
-                }
+                var valor = document.querySelector(".rectangulo0");
+                var valor1 = document.querySelector(".rectangulo1");
+                 area = parseFloat(valor.value) * parseFloat(valor1.value);
             } else if (select === "triangulo"){
                 document.getElementById("triangulo").childNodes;
-                let valor = document.querySelector(".triangulo0");
-                let valor1 = document.querySelector(".triangulo1");
-                if(valor.value < 0 || valor1.value < 0){
-                    area = NaN; 
-                } else {
-                    area = (parseFloat(valor.value) * parseFloat(valor1.value)) / 2;
-                }
+                var valor = document.querySelector(".triangulo0");
+                var valor1 = document.querySelector(".triangulo1");
+                area = (parseFloat(valor.value) * parseFloat(valor1.value)) / 2;
             } else if (select === "circulo"){
                 document.getElementById("circulo").childNodes;
-                let valor = document.querySelector(".circulo0");
-                if(valor.value < 0){
-                    area = NaN; 
-                } else {
-                    area = (Math.PI * (parseFloat(valor.value) * parseFloat(valor.value))).toFixed(4);
-                }  
+                var valor = document.querySelector(".circulo0");
+                area = (Math.PI * (parseFloat(valor.value) * parseFloat(valor.value))).toFixed(4);
             }
-            if(isNaN(area)){
+            if(isNaN(area) || valor.value < 0 || valor.value1 < 0){
                 htmlCode2 = `
                 <h3 id="resultado_total_error">Debes ingresar números positivos</h3>` 
             } else {
@@ -119,45 +103,25 @@ function fig_select(){
         } else if (operacion === "perimetro"){
             if (select === "cuadrado"){
                 document.getElementById("cuadrado").childNodes;
-                let valor = document.querySelector(".cuadrado0");
-                if(valor.value < 0){
-                    perimetro = NaN; 
-                } else {
-                    perimetro = parseFloat(valor.value) * 4;
-                } 
-                
+                var valor = document.querySelector(".cuadrado0");
+                perimetro = parseFloat(valor.value) * 4; 
             } else if (select === "rectangulo"){
                 document.getElementById("cuadrado").childNodes;
-                let valor = document.querySelector(".rectangulo0");
-                let valor1 = document.querySelector(".rectangulo1");
-                if(valor.value < 0 || valor1.value <0){
-                    perimetro = NaN; 
-                } else {
-                    perimetro = (parseFloat(valor.value)*2) + (parseFloat(valor1.value)*2);
-                } 
-                
+                var valor = document.querySelector(".rectangulo0");
+                var valor1 = document.querySelector(".rectangulo1");
+                perimetro = (parseFloat(valor.value)*2) + (parseFloat(valor1.value)*2);
             } else if (select === "triangulo"){
                 document.getElementById("triangulo").childNodes;
-                let valor = document.querySelector(".triangulo0");
-                let valor1 = document.querySelector(".triangulo1");
-                let valor2 = document.querySelector(".triangulo2");
-                if(valor.value < 0 || valor1.value <0 || valor2.value < 0){
-                    perimetro = NaN; 
-                } else {
-                    perimetro = parseFloat(valor.value) + parseFloat(valor1.value) + parseFloat(valor2.value);
-                } 
-                
+                var valor = document.querySelector(".triangulo0");
+                var valor1 = document.querySelector(".triangulo1");
+                var valor2 = document.querySelector(".triangulo2");
+                perimetro = parseFloat(valor.value) + parseFloat(valor1.value) + parseFloat(valor2.value);
             } else if (select === "circulo"){
                 document.getElementById("circulo").childNodes;
-                let valor = document.querySelector(".circulo0");
-                if(valor.value < 0){
-                    perimetro = NaN; 
-                } else {
-                    perimetro = (2 * Math.PI * parseFloat(valor.value)).toFixed(4);
-                }
-                
+                var valor = document.querySelector(".circulo0");
+                perimetro = (2 * Math.PI * parseFloat(valor.value)).toFixed(4);  
             }
-            if(isNaN(perimetro)){
+            if(isNaN(perimetro) || valor.value < 0 || valor1.value < 0 || valor2.value < 0){
                 htmlCode2 = `
                 <h3 id="resultado_total_error">Debes ingresar números positivos</h3>` 
             } else {
@@ -179,7 +143,7 @@ function delete_inputs(){
         }
     }
 }
-        
+       
 
 
 
