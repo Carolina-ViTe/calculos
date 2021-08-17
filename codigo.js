@@ -68,39 +68,105 @@ function fig_select(){
         document.getElementById(select).innerHTML = htmlCode;
     }
 
+
     boton_calcular.addEventListener("click",()=>{
         let area = 1;
         let perimetro = 0;
 
         if(operacion === "area"){
-            for (let c=0; c<FIGURAS.length; c++){
-                if(document.getElementById(FIGURAS[c].figura).hasChildNodes()){
-                    children = document.getElementById(FIGURAS[c].figura).childNodes;
-                    for (let d=0; d<children.length; d++){
-                        let identificador = "." + FIGURAS[c].figura + d
-                        let valor_d = document.querySelector(identificador);
-                        area = area * parseFloat(valor_d.value);
-                    }
+            if (select === "cuadrado"){
+                document.getElementById("cuadrado").childNodes;
+                let valor = document.querySelector(".cuadrado0");
+                if(valor.value < 0){
+                    area = NaN; 
+                } else {
+                    area = parseFloat(valor.value) * parseFloat(valor.value);
                 }
-            } 
-            htmlCode2 = `
-            <h3 id="resultado_total">Área = ${area} ${unidad_de_medida}2</h3>`   
+            } else if (select === "rectangulo"){
+                document.getElementById("cuadrado").childNodes;
+                let valor = document.querySelector(".rectangulo0");
+                let valor1 = document.querySelector(".rectangulo1");
+                if(valor.value < 0 || valor1.value < 0){
+                    area = NaN; 
+                } else {
+                    area = parseFloat(valor.value) * parseFloat(valor1.value);
+                }
+            } else if (select === "triangulo"){
+                document.getElementById("triangulo").childNodes;
+                let valor = document.querySelector(".triangulo0");
+                let valor1 = document.querySelector(".triangulo1");
+                if(valor.value < 0 || valor1.value < 0){
+                    area = NaN; 
+                } else {
+                    area = (parseFloat(valor.value) * parseFloat(valor1.value)) / 2;
+                }
+            } else if (select === "circulo"){
+                document.getElementById("circulo").childNodes;
+                let valor = document.querySelector(".circulo0");
+                if(valor.value < 0){
+                    area = NaN; 
+                } else {
+                    area = (Math.PI * (parseFloat(valor.value) * parseFloat(valor.value))).toFixed(4);
+                }  
+            }
+            if(isNaN(area)){
+                htmlCode2 = `
+                <h3 id="resultado_total_error">Debes ingresar números positivos</h3>` 
+            } else {
+                htmlCode2 = `
+                <h3 id="resultado_total">Área = ${area} ${unidad_de_medida}2</h3>`
+            }
         } else if (operacion === "perimetro"){
-            for (let c=0; c<FIGURAS.length; c++){
-                if(document.getElementById(FIGURAS[c].figura).hasChildNodes()){
-                    children = document.getElementById(FIGURAS[c].figura).childNodes;
-                    for (let d=0; d<children.length; d++){
-                        let identificador = "." + FIGURAS[c].figura + d
-                        let valor_d = document.querySelector(identificador);
-                        perimetro += parseFloat(valor_d.value);
-                    }
+            if (select === "cuadrado"){
+                document.getElementById("cuadrado").childNodes;
+                let valor = document.querySelector(".cuadrado0");
+                if(valor.value < 0){
+                    perimetro = NaN; 
+                } else {
+                    perimetro = parseFloat(valor.value) * 4;
+                } 
+                
+            } else if (select === "rectangulo"){
+                document.getElementById("cuadrado").childNodes;
+                let valor = document.querySelector(".rectangulo0");
+                let valor1 = document.querySelector(".rectangulo1");
+                if(valor.value < 0 || valor1.value <0){
+                    perimetro = NaN; 
+                } else {
+                    perimetro = (parseFloat(valor.value)*2) + (parseFloat(valor1.value)*2);
+                } 
+                
+            } else if (select === "triangulo"){
+                document.getElementById("triangulo").childNodes;
+                let valor = document.querySelector(".triangulo0");
+                let valor1 = document.querySelector(".triangulo1");
+                let valor2 = document.querySelector(".triangulo2");
+                if(valor.value < 0 || valor1.value <0 || valor2.value < 0){
+                    perimetro = NaN; 
+                } else {
+                    perimetro = parseFloat(valor.value) + parseFloat(valor1.value) + parseFloat(valor2.value);
+                } 
+                
+            } else if (select === "circulo"){
+                document.getElementById("circulo").childNodes;
+                let valor = document.querySelector(".circulo0");
+                if(valor.value < 0){
+                    perimetro = NaN; 
+                } else {
+                    perimetro = (2 * Math.PI * parseFloat(valor.value)).toFixed(4);
                 }
-            } 
-            htmlCode2 = `
-            <h3 id="resultado_total">Perímetro= ${perimetro} ${unidad_de_medida}</h3>` 
-        }
+                
+            }
+            if(isNaN(perimetro)){
+                htmlCode2 = `
+                <h3 id="resultado_total_error">Debes ingresar números positivos</h3>` 
+            } else {
+                htmlCode2 = `
+                <h3 id="resultado_total">Perímetro = ${perimetro} ${unidad_de_medida}</h3>`   
+            }
+        } 
         document.getElementById("resulta").innerHTML = htmlCode2;
-    })
+    }) 
 }
 
 // Función para borrar inputs en caso de que se requiera
@@ -112,10 +178,11 @@ function delete_inputs(){
             }
         }
     }
-
-    
 }
         
-        
-// i, j, k, a, b, c, d
-        
+
+
+
+
+
+// fors i, j, c, d
