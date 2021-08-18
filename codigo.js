@@ -152,7 +152,7 @@ function fig_select(){
     }) 
 }
 
-// Función para borrar inputs en caso de que se requiera
+// Función para borrar inputsgt 
 function delete_inputs(){
     for (let a=0; a<FIGURAS.length; a++){
         if(document.getElementById(FIGURAS[a].figura).hasChildNodes()){
@@ -164,3 +164,6 @@ function delete_inputs(){
 }
 
 // fors i, j, c, d, a
+
+
+
