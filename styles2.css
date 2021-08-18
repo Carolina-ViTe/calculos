@@ -2,7 +2,8 @@
 :root{
     --color-font-encabezado: #77ebff;
     --color-font-cuerpo: white;
-    --color-font-resultado: #ff00ff;
+    --color-font-resultado: #00DB43;
+    --color-font-error: #FF085F;
     --color-backg-principal: #000e1acb;
     --color-backg-opciones: #00101b;
     --color-backg-pulsado: #000e1a;
@@ -260,7 +261,7 @@ input[type=number] {
 }
 
 #resultado_total_error{
-    color: red;
+    color: var(--color-font-error);
     text-align: center;
     font-size: 2.5em;
 }
