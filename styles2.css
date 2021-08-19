@@ -48,7 +48,21 @@ body{
     background: var(--color-backg-principal);
 }
 
+.icon{
+    position: fixed;
+    top: 3vh;
+    left: 93%;
+}
 
+.fas{
+    color: var(--color-font-encabezado);
+    font-size: 4em;
+    transition: all 100ms;
+}
+
+.fas:active{
+    color: #5cd2e7;
+}
 
 .encabezado{
     height: 20vh;
