@@ -1,3 +1,5 @@
+"use strict"
+
 // Esto sson los div donde apareceran los inputs dependiendo de la figura seleccionada
 const div_cuadrado = document.getElementById("cuadrado");               //Este es el div para crear inputs para cuadrado
 const div_rectangulo = document.getElementById("rectangulo");           //Este es el div para crear inputs para rectangulo
@@ -83,31 +85,31 @@ function fig_select(){
         if (select === "cuadrado" && operacion === "area"){
             let valor0 = document.querySelector(".cuadrado0");
             area = parseFloat(valor0.value) * parseFloat(valor0.value);
-            htmlCode2 = error(operacion, area, unidad_de_medida, parseFloat(valor0.value), b=0, c=0);
+            htmlCode2 = error(operacion, area, unidad_de_medida, parseFloat(valor0.value));
         } else if (select === "rectangulo" && operacion === "area"){
             let valor0 = document.querySelector(".rectangulo0");
             let valor1 = document.querySelector(".rectangulo1");
             area = parseFloat(valor0.value) * parseFloat(valor1.value);
-            htmlCode2 = error(operacion, area, unidad_de_medida, parseFloat(valor0.value), parseFloat(valor1.value), c=0);
+            htmlCode2 = error(operacion, area, unidad_de_medida, parseFloat(valor0.value), parseFloat(valor1.value));
         } else if (select === "triangulo" && operacion === "area"){
             let valor0 = document.querySelector(".triangulo0");
             let valor1 = document.querySelector(".triangulo1");
             area = (parseFloat(valor0.value) * parseFloat(valor1.value)) / 2;
-            htmlCode2 = error(operacion, area, unidad_de_medida, parseFloat(valor0.value), parseFloat(valor1.value), c=0);
+            htmlCode2 = error(operacion, area, unidad_de_medida, parseFloat(valor0.value), parseFloat(valor1.value));
         } else if (select === "circulo" && operacion === "area"){
             let valor0 = document.querySelector(".circulo0");
             area = (Math.PI * (parseFloat(valor0.value) * parseFloat(valor0.value))).toFixed(4);
-            htmlCode2 = error(operacion, area, unidad_de_medida, parseFloat(valor0.value), b=0, c=0);
+            htmlCode2 = error(operacion, area, unidad_de_medida, parseFloat(valor0.value));
         }
         if (select === "cuadrado" && operacion === "perimetro"){
             let valor0 = document.querySelector(".cuadrado0");
             perimetro = parseFloat(valor0.value) * 4; 
-            htmlCode2 = error(operacion, perimetro, unidad_de_medida, parseFloat(valor0.value), b=0, c=0);
+            htmlCode2 = error(operacion, perimetro, unidad_de_medida, parseFloat(valor0.value));
         } else if (select === "rectangulo" && operacion === "perimetro"){
             let valor0 = document.querySelector(".rectangulo0");
             let valor1 = document.querySelector(".rectangulo1");
             perimetro = (parseFloat(valor0.value)*2) + (parseFloat(valor1.value)*2);
-            htmlCode2 = error(operacion, perimetro, unidad_de_medida, parseFloat(valor0.value), parseFloat(valor1.value), c=0);
+            htmlCode2 = error(operacion, perimetro, unidad_de_medida, parseFloat(valor0.value), parseFloat(valor1.value));
         } else if (select === "triangulo" && operacion === "perimetro"){
             let valor0 = document.querySelector(".triangulo0");
             let valor1 = document.querySelector(".triangulo1");
@@ -117,7 +119,7 @@ function fig_select(){
         } else if (select === "circulo" && operacion === "perimetro"){
             let valor0 = document.querySelector(".circulo0");
             perimetro = (2 * Math.PI * parseFloat(valor0.value)).toFixed(4); 
-            htmlCode2 = error(operacion, perimetro, unidad_de_medida, parseFloat(valor0.value), b=0, c=0);
+            htmlCode2 = error(operacion, perimetro, unidad_de_medida, parseFloat(valor0.value));
         }
         document.getElementById("resulta").innerHTML = htmlCode2;
     })
@@ -134,7 +136,8 @@ function delete_inputs(){
     }
 }
 
-const error = (operacion_a_realizar, resultado, um, a, b, c) => {
+const error = (operacion_a_realizar, resultado, um, a=0, b=0, c=0) => {
+    let mensaje_res = "";
     if (isNaN(resultado) || a < 0 || b < 0 || c < 0){
         mensaje_res = `<h3 id="resultado_total_error">Debes ingresar números positivos</h3>`;
     } else {
@@ -145,12 +148,11 @@ const error = (operacion_a_realizar, resultado, um, a, b, c) => {
             
         }
     } 
-    console.log(mensaje_res)
     return mensaje_res;
 }
 
 
 
 
-// fors i, j, c, d, a, b
+// fors i, j, c, d, a
 
