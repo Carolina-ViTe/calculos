@@ -10,31 +10,19 @@ const boton_calcular = document.getElementById("calcular");
 
 const FIGURAS = [{
     figura: "cuadrado",
-    op: ["area", "perimetro"],
-    area: 1,
     areaNombre: ["Lado"],
-    perimetro: 1,
     perimetroNombre: ["Lado"]
 },{
     figura: "rectangulo",
-    op: ["area", "perimetro"],
-    area: 2,
     areaNombre: ["Base", "Altura"],
-    perimetro: 2,
     perimetroNombre: ["Base", "Altura"]
 },{
     figura: "triangulo",
-    op: ["area", "perimetro"],
-    area: 2,
     areaNombre: ["Base", "Altura"],
-    perimetro: 3,
-    perimetroNombre: ["Lado 1", "Lado 2", "Lado 3"]
+    perimetroNombre: ["Lado-A", "Lado-B", "Lado-C"]
 },{
     figura: "circulo",
-    op: ["area", "perimetro"],
-    area: 1,
     areaNombre: ["Radio"],
-    perimetro: 1,
     perimetroNombre: ["Radio"]
 }];
 
@@ -61,7 +49,7 @@ function fig_select(){
         // Aqui se invoca la función para borrar inputs que hayan sido creados por otra opción
         delete_inputs();
         // Aqui se crean los inputs en caso de que se quiera calcular el area
-        for (let j=0; j<FIGURAS[index].area; j++){
+        for (let j=0; j<FIGURAS[index].areaNombre.length; j++){
             htmlCode += `<input type="number" class=${select+j} placeholder=${FIGURAS[index].areaNombre[j]}>`; 
         }
         document.getElementById(select).innerHTML = htmlCode;
@@ -69,7 +57,7 @@ function fig_select(){
         // Aqui se invoca la función para borrar inputs que hayan sido creados por otra opción
         delete_inputs();
         // Aqui se crean los inputs en caso de que se quiera calcular el perimetro
-        for (let j=0; j<FIGURAS[index].perimetro; j++){
+        for (let j=0; j<FIGURAS[index].perimetroNombre.length; j++){
             htmlCode += `<input type="number" class=${select+j} placeholder=${FIGURAS[index].perimetroNombre[j]}>`; 
         }
         document.getElementById(select).innerHTML = htmlCode;
