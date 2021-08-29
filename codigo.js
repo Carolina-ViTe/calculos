@@ -1,5 +1,124 @@
 "use strict"
 
+//---------------------------INICIA CALCULADORA--------------------------------------
+let num_screen_op_especiales = '';
+let num_screen = '';
+let operacion_en_curso = '';
+let valCalc2 = ''
+let resultado = 0;
+let punto_en_pantalla = "no"
+let resultado_en_pantalla = "no";
+let op_esp_en_curso = "no";
+let screen = document.getElementById("screen");
+let val1 = '';
+
+function select_num(value){
+    if(resultado_en_pantalla === "no"){
+        if(value === "."){
+            if(punto_en_pantalla === "no"){
+                screen.value += value;
+                num_screen += value;
+                punto_en_pantalla = "si"
+            }else if(punto_en_pantalla = "si"){
+                value = '';
+            }
+        }else{
+            screen.value += value;
+            num_screen += value;
+        }
+    }else if(resultado_en_pantalla === "si"){
+        screen.value = value;
+        num_screen = value;
+        resultado_en_pantalla="no";
+    }
+}
+
+function operacion(op){
+    if(op === "raiz" && operacion_en_curso === "basicas"){
+        val1 = num_screen.split('').slice(0, num_screen.split('').length-1).join('');
+        console.log(val1);
+        screen.value = val1 + "sqrt(" + num_screen.split('').pop() + ")";
+        operacion_en_curso = "raiz";
+        num_screen_op_especiales = eval(num_screen.split('').pop());
+        num_screen='';
+    }else if(op === "raiz"){
+        screen.value = val1 + "sqrt(" + num_screen + ")";
+        operacion_en_curso = "raiz";
+        num_screen_op_especiales = eval(num_screen);
+        num_screen='';
+    }else if(op === "porcentaje"){
+        screen.value = "(" + eval(num_screen) + "%)";
+        operacion_en_curso = "porcentaje";
+        num_screen_op_especiales = eval(num_screen);
+        num_screen = '';
+    }else{
+        if(operacion_en_curso === "raiz"){
+            screen.value += op;
+            num_screen += op;
+            operacion_en_curso = "mezcla_raiz";            
+        } else if(operacion_en_curso === "porcentaje"){
+            screen.value += op;
+            num_screen += op;
+            operacion_en_curso = "mezcla_porcentaje";            
+        } else if (operacion_en_curso === 'basicas' || operacion_en_curso === ''){
+            screen.value += op;
+            num_screen += op;
+            operacion_en_curso = "basicas";
+        }
+    }
+    resultado_en_pantalla = "no";
+    punto_en_pantalla = "no";
+}
+
+let pre_resultado = 0;
+let igual = document.getElementById("igual");
+igual.addEventListener("click", ()=>{
+    if(operacion_en_curso === "raiz"){
+        resultado = eval(num_screen + val1 + Math.sqrt(num_screen_op_especiales));
+        num_screen = resultado;
+    } else if(operacion_en_curso === "porcentaje"){
+        resultado = (num_screen_op_especiales/100) * eval(num_screen);
+        num_screen = resultado;
+    }else if (operacion_en_curso === "mezcla_raiz"){
+        pre_resultado = Math.sqrt(num_screen_op_especiales);
+        resultado = eval(val1 + pre_resultado + num_screen);
+        console.log("num_screen", num_screen);
+        num_screen = resultado;
+    } else if (operacion_en_curso === "mezcla_porcentaje"){
+        pre_resultado = (num_screen_op_especiales/100) * eval(num_screen);
+        resultado = eval(pre_resultado + num_screen);
+        num_screen = resultado;
+    } else {
+        valCalc2 = screen.value;
+        resultado = eval(valCalc2);
+        num_screen = resultado;
+    }
+    screen.value = resultado;
+    resultado_en_pantalla = "si";
+    console.log(resultado);
+    operacion_en_curso = '';
+    num_screen_op_especiales = '';
+    resultado = 0;
+    punto_en_pantalla = "no";
+    val1 = '';
+});
+
+let clear = document.getElementById("clear");
+clear.addEventListener("click", ()=>{
+    screen.value = '';
+    punto_en_pantalla = "no";
+    resultado_en_pantalla = "no";
+    operacion_en_curso = '';
+    num_screen_op_especiales = '';
+    num_screen = '';
+    val1 = '';
+});
+
+//---------------------------FIN CALCULADORA-----------------------------------------
+
+
+//--------------------------INICIA ÁREA / PERÍMETRO----------------------------------
+
 // Esto sson los div donde apareceran los inputs dependiendo de la figura seleccionada
 const div_cuadrado = document.getElementById("cuadrado");               //Este es el div para crear inputs para cuadrado
 const div_rectangulo = document.getElementById("rectangulo");           //Este es el div para crear inputs para rectangulo
@@ -139,8 +258,58 @@ const error = (operacion_a_realizar, resultado, um, a=0, b=0, c=0) => {
     return mensaje_res;
 }
 
+//--------------------------TERMINA ÁREA / PERÍMETRO----------------------------------
 
 
 
-// fors i, j, c, d, a
 
+//----------------VARIABLES Y FUNCIONES UTILIZADAS POR MODULO--------------------------------------
+
+/* Para todos los modulos:
+fors i, j, c, d, a, b
+*/
+
+/*Modulo calculadora:
+--***VARIABLES:
+-num_screen
+-operacion_en_curso
+-op_esp_en_curso
+-resultado
+-resultado_en_pantalla
+-screen
+-igual
+-clear
+-val1
+-punto_en_pantalla
+--**FUNCIONES:
+-select_num()
+-operacion()
+
+*/
+
+
+/* ---Modulo área / perimetro
+--***VARIABLES:
+-div_cuadrado
+-div_rectangulo
+-div_triangulo
+-div_circulo
+-boton_calcular
+-FIGURAS
+-select
+-operacion
+-unidad_de_medida
+-index
+-htmlCode
+-htmlCode2
+-area
+-perimetro
+-valor0
+-valor1
+-valor2
+-mensaje_res
+--**FUNCIONES:
+-fig_select()
+-delete_inputs()
+-error()
+*/
