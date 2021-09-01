@@ -5,12 +5,14 @@ let num_screen_op_especiales = '';
 let num_screen = '';
 let operacion_en_curso = '';
 let valCalc2 = ''
-let resultado = 0;
+let resultado = '';
 let punto_en_pantalla = "no"
 let resultado_en_pantalla = "no";
 let op_esp_en_curso = "no";
 let screen = document.getElementById("screen");
 let val1 = '';
+let regex = /\+|\-|\*|\//;
+let index = '';
 
 function select_num(value){
     if(resultado_en_pantalla === "no"){
@@ -33,33 +35,35 @@ function select_num(value){
     }
 }
 
+
 function operacion(op){
     if(op === "raiz" && operacion_en_curso === "basicas"){
-        val1 = num_screen.split('').slice(0, num_screen.split('').length-1).join('');
-        console.log(val1);
-        screen.value = val1 + "sqrt(" + num_screen.split('').pop() + ")";
+        index = num_screen.split('').reverse().join('').search(regex);
+        val1 = num_screen.split('').slice(0, num_screen.split('').length-index).join('');
+        console.log(index);
+        screen.value = val1 + document.querySelector("#raiz").value + num_screen.split('').slice(num_screen.split('').length-index, num_screen.split('').length).join('');
         operacion_en_curso = "raiz";
-        num_screen_op_especiales = eval(num_screen.split('').pop());
+        num_screen_op_especiales = eval(num_screen.split('').slice(num_screen.split('').length-index, num_screen.split('').length).join(''));
         num_screen='';
-    }else if(op === "raiz"){
-        screen.value = val1 + "sqrt(" + num_screen + ")";
+    }else if(op === 'raiz'){
+        console.log(op)
+        screen.value = val1 + document.querySelector("#raiz").value + num_screen;
         operacion_en_curso = "raiz";
         num_screen_op_especiales = eval(num_screen);
         num_screen='';
-    }else if(op === "porcentaje"){
-        screen.value = "(" + eval(num_screen) + "%)";
-        operacion_en_curso = "porcentaje";
-        num_screen_op_especiales = eval(num_screen);
+    }else if(op === "%" && operacion_en_curso === "basicas"){
+        index = num_screen.split('').reverse().join('').search(regex);
+        val1 = num_screen.split('').slice(0, num_screen.split('').length-index).join('');
+        screen.value = val1 + (num_screen.split('').slice(num_screen.split('').length-index, num_screen.split('').length).join(''))/100;
+    }else if(op === "%"){
+        screen.value =  eval(num_screen)/100;
+        num_screen_op_especiales = eval(num_screen)/100;
         num_screen = '';
     }else{
-        if(operacion_en_curso === "raiz"){
+        if(operacion_en_curso === "raiz" || operacion_en_curso === "mezcla_raiz"){
             screen.value += op;
             num_screen += op;
-            operacion_en_curso = "mezcla_raiz";            
-        } else if(operacion_en_curso === "porcentaje"){
-            screen.value += op;
-            num_screen += op;
-            operacion_en_curso = "mezcla_porcentaje";            
+            operacion_en_curso = "mezcla_raiz";                       
         } else if (operacion_en_curso === 'basicas' || operacion_en_curso === ''){
             screen.value += op;
             num_screen += op;
@@ -75,18 +79,15 @@ let igual = document.getElementById("igual");
 igual.addEventListener("click", ()=>{
     if(operacion_en_curso === "raiz"){
         resultado = eval(num_screen + val1 + Math.sqrt(num_screen_op_especiales));
+        console.log(resultado)
         num_screen = resultado;
-    } else if(operacion_en_curso === "porcentaje"){
-        resultado = (num_screen_op_especiales/100) * eval(num_screen);
+    } else if(operacion_en_curso === "%"){
+        resultado = eval(num_screen_op_especiales + num_screen);
         num_screen = resultado;
     }else if (operacion_en_curso === "mezcla_raiz"){
         pre_resultado = Math.sqrt(num_screen_op_especiales);
         resultado = eval(val1 + pre_resultado + num_screen);
         console.log("num_screen", num_screen);
-        num_screen = resultado;
-    } else if (operacion_en_curso === "mezcla_porcentaje"){
-        pre_resultado = (num_screen_op_especiales/100) * eval(num_screen);
-        resultado = eval(pre_resultado + num_screen);
         num_screen = resultado;
     } else {
         valCalc2 = screen.value;
@@ -98,21 +99,27 @@ igual.addEventListener("click", ()=>{
     console.log(resultado);
     operacion_en_curso = '';
     num_screen_op_especiales = '';
-    resultado = 0;
+    resultado = '';
     punto_en_pantalla = "no";
     val1 = '';
 });
 
 let clear = document.getElementById("clear");
+
 clear.addEventListener("click", ()=>{
     screen.value = '';
     punto_en_pantalla = "no";
     resultado_en_pantalla = "no";
     operacion_en_curso = '';
+    op_esp_en_curso = "no"
     num_screen_op_especiales = '';
     num_screen = '';
     val1 = '';
+    pre_resultado='';
+    index=''
 });
+
+
 
 //---------------------------FIN CALCULADORA-----------------------------------------
 
@@ -271,16 +278,21 @@ fors i, j, c, d, a, b
 
 /*Modulo calculadora:
 --***VARIABLES:
+-num_screen_op_especiales
 -num_screen
 -operacion_en_curso
 -op_esp_en_curso
 -resultado
 -resultado_en_pantalla
+-pre_resultado
 -screen
 -igual
 -clear
 -val1
+-valCalc2
 -punto_en_pantalla
+-regex
+-index
 --**FUNCIONES:
 -select_num()
 -operacion()

@@ -61,26 +61,26 @@
         </header>
         <div id="espacio-calculadora">
             <form id="calculadora-grid">
-                <input class="grid-item" id="screen" type="text" placeholder="0">
-                <button class="grid-item" value = "raiz" onclick="operacion(this.value)">&radic;</button>
-                <button class="grid-item" value = "porcentaje" onclick="operacion(this.value)">%</button>
-                <button class="grid-item" value ="/" onclick="operacion(this.value)">/</button>
-                <button class="grid-item" value ="*" onclick="operacion(this.value)">*</button>
-                <button class="grid-item" value="7" onclick="select_num(this.value)">7</button>
-                <button class="grid-item" value="8" onclick="select_num(this.value)">8</button>
-                <button class="grid-item" value="9" onclick="select_num(this.value)">9</button>
-                <button class="grid-item" value ="-" onclick="operacion(this.value)">-</button>
-                <button class="grid-item" value="4" onclick="select_num(this.value)">4</button>
-                <button class="grid-item" value="5" onclick="select_num(this.value)">5</button>
-                <button class="grid-item" value="6" onclick="select_num(this.value)">6</button>
-                <button class="grid-item" value ="+" onclick="operacion(this.value)">+</button >
-                <button class="grid-item" value="1" onclick="select_num(this.value)">1</button>
-                <button class="grid-item" value="2" onclick="select_num(this.value)">2</button>
-                <button class="grid-item" value="3" onclick="select_num(this.value)">3</button>
-                <button id="clear" class="grid-item">C</button>
-                <button class="grid-item" value="0" onclick="select_num(this.value)">0</button>
-                <button class="grid-item" value="." onclick="select_num(this.value)">.</button>
-                <button class="grid-item" id="igual">=</button>   
+                <input class="grid-item" id="screen" type="text" placeholder="0" autocomplete="off">
+                <input type="button" class="grid-item" value = &radic; id="raiz" onclick="operacion(this.id)">
+                <input type="button" class="grid-item" value = "%" onclick="operacion(this.value)">
+                <input type="button" class="grid-item" value ="/" onclick="operacion(this.value)">
+                <input type="button" class="grid-item" value ="*" onclick="operacion(this.value)">
+                <input type="button" class="grid-item" value="7" onclick="select_num(this.value)">
+                <input type="button" class="grid-item" value="8" onclick="select_num(this.value)">
+                <input type="button" class="grid-item" value="9" onclick="select_num(this.value)">
+                <input type="button" class="grid-item" value ="-" onclick="operacion(this.value)">
+                <input type="button" class="grid-item" value="4" onclick="select_num(this.value)">
+                <input type="button" class="grid-item" value="5" onclick="select_num(this.value)">
+                <input type="button" class="grid-item" value="6" onclick="select_num(this.value)">
+                <input type="button" class="grid-item" value ="+" onclick="operacion(this.value)">
+                <input type="button" class="grid-item" value="1" onclick="select_num(this.value)">
+                <input type="button" class="grid-item" value="2" onclick="select_num(this.value)">
+                <input type="button" class="grid-item" value="3" onclick="select_num(this.value)">
+                <input type="button" id="clear" class="grid-item" value="C">
+                <input type="button" class="grid-item" value="0" onclick="select_num(this.value)">
+                <input type="button" class="grid-item" value="." onclick="select_num(this.value)">
+                <button id="igual" class="grid-item">=</button>   
             </form>
         </div>
     </div>
