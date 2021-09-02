@@ -9,12 +9,12 @@ let resultado = '';
 let punto_en_pantalla = "no"
 let resultado_en_pantalla = "no";
 let op_esp_en_curso = "no";
-let screen = document.getElementById("screen");
+let screen = document.getElementById("screen");     //Esta es la pantalla de la calculadora
 let val1 = '';
 let regex = /\+|\-|\*|\//;
 let index = '';
 
-function select_num(value){
+function select_num(value){                         // Con esta función se muetsran los numeros en pantalla
     if(resultado_en_pantalla === "no"){
         if(value === "."){
             if(punto_en_pantalla === "no"){
@@ -36,7 +36,7 @@ function select_num(value){
 }
 
 
-function operacion(op){
+function operacion(op){                                         // Con esta función se muetsran los simbolos de operacion en pantalla
     if(op === "raiz" && operacion_en_curso === "basicas"){
         index = num_screen.split('').reverse().join('').search(regex);
         val1 = num_screen.split('').slice(0, num_screen.split('').length-index).join('');
@@ -75,7 +75,7 @@ function operacion(op){
 }
 
 let pre_resultado = 0;
-let igual = document.getElementById("igual");
+let igual = document.getElementById("igual");                               // Con este evento se realiza la operación y se muestra el resultado en pantalla
 igual.addEventListener("click", ()=>{
     if(operacion_en_curso === "raiz"){
         resultado = eval(num_screen + val1 + Math.sqrt(num_screen_op_especiales));
