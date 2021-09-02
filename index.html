@@ -29,40 +29,68 @@
     <header class="encabezado" id="principal">
         <h1>¿Qué cálculo deseas realizar?</h1>
     </header>
-    <!-- Contenido grid donde estarán las opciones de cálculo -->
-    <div id="cont-block">
+        <div id="cont-block">
         <div id="contenido">
-            <a class="calculos-items calc" href="#">
+            <a class="calculos-items calc" href="#calculadora">
                 <p>Calculadora</p>
             </a>
-            <a class="calculos-items ap" href="#cont-figuras">
-                <p>Áreas/perímetros</p>
+            <a class="calculos-items ap" href="#figuras-geometricas">
+                <p>Áreas / perímetros</p>
             </a>
-            <a class="calculos-items nr" href="#">
+            <a class="calculos-items nr" href="#numeros-romanos">
                 <p>Números romanos</p>
             </a>
-            <a class="calculos-items cffc" href="#">
+            <a class="calculos-items cffc" href="#grados">
                 <p>°F a °C / °C a °F</p>
             </a>
-            <a class="calculos-items um" href="#">
+            <a class="calculos-items um" href="#unidades-de-medida">
                 <p>Unidades de medidas</p>
             </a>
-            <a class="calculos-items hr" href="#">
+            <a class="calculos-items hr" href="#hora">
                 <p>Hora</p>
             </a>
         </div>
-
     </div>
-    <!-- Termina contenido grid donde estarán las opciones de cálculo -->
     <section id="footer"></section>
     <!-- Fin de página de inicio -->
 
+    <!-- Inicia sección de calculadora -->
+    <div id="calculadora">
+        <header class="encabezado enc1">
+            <h1>Calculadora</h1>
+        </header>
+        <div id="espacio-calculadora">
+            <form id="calculadora-grid">
+                <input class="grid-item" id="screen" type="text" placeholder="0" autocomplete="off">
+                <input type="button" class="grid-item" value = &radic; id="raiz" onclick="operacion(this.id)">
+                <input type="button" class="grid-item" value = "%" onclick="operacion(this.value)">
+                <input type="button" class="grid-item" value ="/" onclick="operacion(this.value)">
+                <input type="button" class="grid-item" value ="*" onclick="operacion(this.value)">
+                <input type="button" class="grid-item" value="7" onclick="select_num(this.value)">
+                <input type="button" class="grid-item" value="8" onclick="select_num(this.value)">
+                <input type="button" class="grid-item" value="9" onclick="select_num(this.value)">
+                <input type="button" class="grid-item" value ="-" onclick="operacion(this.value)">
+                <input type="button" class="grid-item" value="4" onclick="select_num(this.value)">
+                <input type="button" class="grid-item" value="5" onclick="select_num(this.value)">
+                <input type="button" class="grid-item" value="6" onclick="select_num(this.value)">
+                <input type="button" class="grid-item" value ="+" onclick="operacion(this.value)">
+                <input type="button" class="grid-item" value="1" onclick="select_num(this.value)">
+                <input type="button" class="grid-item" value="2" onclick="select_num(this.value)">
+                <input type="button" class="grid-item" value="3" onclick="select_num(this.value)">
+                <input type="button" id="clear" class="grid-item" value="C">
+                <input type="button" class="grid-item" value="0" onclick="select_num(this.value)">
+                <input type="button" class="grid-item" value="." onclick="select_num(this.value)">
+                <button id="igual" class="grid-item">=</button>   
+            </form>
+        </div>
+    </div>
+    <!-- Termina sección de calculadora -->
+
     <!-- Inicia página de Areas / perímetros -->
-    <header class="encabezado enc2">
+    <header class="encabezado enc2" id="figuras-geometricas">
         <h1>Cálculo de figuras geométricas</h1>
     </header>
     <a class = "icon" href="#principal"><i class="fas fa-home"></i></a>
-    <!-- Contenido grid donde estarán las opciones de operaciones geométricas -->
     <div id="cont-figuras">
         <div class="elegir">
             <p>Elige la fígura que quieres calcular</p>
@@ -83,9 +111,6 @@
             </select>
         </div>
     </div>
-    <!-- Termina contenido grid donde estarán las opciones de operaciones geométricas -->
-
-    <!-- Inicia contenido grid, donde estará el ingreso de datos -->
     <div id="datos">
         <h1 id="solicitud">Ingresa los datos que se te piden a continuación:</h1>
         <p id="requisitos">
@@ -110,13 +135,37 @@
         </div>
         <button id="calcular">Calcular</button>
     </div>
-    <!-- Inicia contenido grid, donde estará el ingreso de datos -->
-
-    <!-- Inicia contenido grid, donde se mostrará el resultado -->
     <div id="resultado">
         <div id="resulta"></div>
     </div>
-    <!-- Termina contenido grid, donde mostrará el resultado -->
+    <!-- Términa página de Areas / perímetros -->
+
+    <!-- Inicia sección de números sromanos -->
+    <div id="numeros-romanos">
+
+    </div>
+    <!-- Termina sección de números sromanos -->
+
+    <!-- Inicia sección de números grados -->
+    <div id="grados">
+        
+    </div>
+    <!-- Termina sección de números grados -->
+
+    <!-- Inicia sección de números Unidades de medidas -->
+    <div id="unidades-de-medida">
+        
+    </div>
+    <!-- Termina sección de números Unidades de medidas -->
+
+    <!-- Inicia sección de números Hora -->
+    <div id="hora">
+        
+    </div>
+    <!-- Termina sección de números Hora -->
+
+
+
 </body>
 
 <script src="codigo.js"></script>
