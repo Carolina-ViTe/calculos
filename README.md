@@ -1,3 +1,5 @@
 ## Página de cálculos básicos (práctica),
 
-- Hasta el momento solo funciona el apartado de área/perímetro.
+Hasta el momento funcionan:
+  - Apartado de área/perímetro.
+  - Calculadora
