@@ -267,7 +267,101 @@ const error = (operacion_a_realizar, resultado, um, a=0, b=0, c=0) => {
 
 //--------------------------TERMINA ÁREA / PERÍMETRO----------------------------------
 
+//--------------------------INICIA NÚMEROS ROMANOS----------------------------------------------
+const convertirARomano = document.querySelector('#convertir_a_romano');
+const convertirANatural = document.querySelector('#convertir_a_natural');
 
+const romanos = ['I', 'IV', 'V', 'IX', 'X', 'XL', 'L', 'XC', 'C', 'CD', 'D', 'CM', 'M', '´V'];
+const arabigos = [1,4,5,9,10,40,50,90,100,400,500,900,1000, 5000];
+
+const convertToRoman = (a)=> {
+    let numRomano = '';
+
+    for(let i=0; i<arabigos.length; i++){
+        if(arabigos[i] > a){
+            numRomano = numRomano.concat(romanos[i-1]);
+            a = a - arabigos[i-1];
+            i=0;
+            if(a === 0) break;
+        }
+    }
+
+    return numRomano;
+};
+
+const extraRomano = (num) => {
+    let newNum = 0;
+    let newNumExtra = 0;
+    let mensajeRomano = '';
+
+    if (num === ''){
+        mensajeRomano = `<h3 class="reRomano-error">Debes ingresar números naturales</h3>`;
+    } else {
+        if(num > 3999){
+            if(num % 1000 > 0){
+                newNum = parseInt(num/1000);
+                newNumExtra = num%1000;
+                mensajeRomano = `<label class="res_romano_4000">${convertToRoman(newNum)}</label>
+                                 <label class="res_romano">${convertToRoman(newNumExtra)}</label>`
+            } else {
+                newNum = num / 1000;
+                mensajeRomano = `<h3 class="res_romano_4000">${convertToRoman(newNum)}</h3>`;
+            }
+        } else {
+            newNum = num;
+            mensajeRomano = `<h3 class="res_romano">${convertToRoman(newNum)}</h3>`;
+        }        
+    }
+    document.querySelector("#resultado_romano").classList.add("activo");
+    return mensajeRomano;
+}
+
+
+function convertToArabic(num){
+ 
+    let sum=0;
+    let indexs = [];
+    let mensajeArabigo = '';
+    console.log(num)
+
+    for (let a=0; a<num.length; a++){
+        for (let b=0; b<romanos.length; b++){
+            if(num.toUpperCase()[a] === romanos[b]) indexs.push(b);
+        }
+    }  
+    
+    for(let c=0; c<indexs.length; c++){
+        if (arabigos[indexs[c]] >= arabigos[indexs[c+1]] || isNaN(arabigos[indexs[c+1]])){
+            sum += arabigos[indexs[c]];
+        } else {
+            sum += arabigos[indexs[c+1]-1];
+            c++;
+        }
+    }
+    return  mensajeArabigo = `<h3 class="res_arabigo">${sum}</h3>`;
+}
+
+
+
+let htmlCode3='';
+convertirARomano.addEventListener("click", ()=>{
+    const ingresarNatural = document.querySelector('#ingresar_natural').value;
+    htmlCode3 = extraRomano(ingresarNatural);
+    document.querySelector("#resultado_romano").innerHTML = htmlCode3;
+});
+
+let htmlCode4='';
+convertirANatural.addEventListener("click", ()=>{
+    const ingresarRomano = document.querySelector('#ingresar_romano').value;
+    htmlCode4 = convertToArabic(ingresarRomano);
+    document.querySelector("#resultado_arabigo").classList.add("activo");
+    document.querySelector("#resultado_arabigo").innerHTML = htmlCode4;
+});
+
+
+
+
+//--------------------------TERMINA NÚMEROS ROMANOS
 
 
 //----------------VARIABLES Y FUNCIONES UTILIZADAS POR MODULO--------------------------------------
@@ -324,4 +418,22 @@ fors i, j, c, d, a, b
 -fig_select()
 -delete_inputs()
 -error()
+*/
+
+
+/* --Modulo Romanos
+- const convertirARomano
+- const convertirANatural
+- const romanos
+- const arabigos
+- let numRomano
+- let mensajeRomano
+- let sum=0;
+- let indexs = [];
+- let mensajeArabigo = '';
+- htmlCode3
+- htmlCode4
+--FUNCIONES:
+- convertToRoman()
+- convertToArabic()
 */
