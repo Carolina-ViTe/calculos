@@ -114,7 +114,7 @@
     <div id="datos">
         <h1 id="solicitud">Ingresa los datos que se te piden a continuación:</h1>
         <p id="requisitos">
-            Los datos qe vas a ingresar, deberán estar en la misma unidad de medida, por ejemplo todos los
+            Los datos que vas a ingresar, deberán estar en la misma unidad de medida, por ejemplo todos los
             datos deberán estar en milimetros, centímetros, metros o kilómetros, si quieres una unidad de medida en especial, te sugiero
             ir al <a href="#">conversor de unidades de medidas</a>.
         </p>
@@ -142,7 +142,24 @@
 
     <!-- Inicia sección de números sromanos -->
     <div id="numeros-romanos">
-
+        <header class="encabezado enc3">
+            <h1>Números Romanos</h1>
+        </header>
+        <h1 class="instrucciones">Transforma números naturales a números romanos y viceversa</h1>
+        <div id="flex-romanos">
+            <form class="flex-item-obtener romanos">
+                <label class="flex-item-convertir">Ingresa número natural</label>
+                <input type="number" class="flex-item-convertir" id="ingresar_natural" placeholder="Ejemplo: 123">
+                <button class="flex-item-convertir" id="convertir_a_romano">Convertir a número romano</button>
+            </form>
+            <div id="resultado_romano"></div>
+            <form class="flex-item-obtener arabigos">
+                <label class="flex-item-convertir">Ingresa número romano</label>
+                <input type="text" class="flex-item-convertir" id="ingresar_romano" placeholder="Ejemplo: CXXIII" autocomplete="off">
+                <button class="flex-item-convertir" id="convertir_a_natural">Convertir a número natural</button>
+            </form>
+            <div id="resultado_arabigo"></div>
+        </div>
     </div>
     <!-- Termina sección de números sromanos -->
 
