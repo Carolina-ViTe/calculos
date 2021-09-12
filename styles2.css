@@ -448,6 +448,7 @@ input[type=number] {
 .reRomano-error{
     color: var(--color-font-error);
     font-size: 2em;
+    text-align: center;
 }
 
 /* --------------------------------TERMINA NUMEROS ROMANOS--------------------------------------- */
