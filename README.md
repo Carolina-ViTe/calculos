@@ -3,3 +3,4 @@
 Hasta el momento funcionan:
   - Apartado de área/perímetro.
   - Calculadora
+  - Números romanos
