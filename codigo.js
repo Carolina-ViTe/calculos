@@ -297,8 +297,8 @@ const extraRomano = (num) => {          //Esta función me da los numeros romano
     let newNumExtra = 0;
     let mensajeRomano = '';
 
-    if (num === '' || num.includes('.')){
-        mensajeRomano = `<h3 class="reRomano-error">Debes ingresar números naturales enteros</h3>`;
+    if (num === '' || num.includes('.') || num < 0){
+        mensajeRomano = `<h3 class="reRomano-error">Debes ingresar números naturales enteros positivos</h3>`;
     } else {
         if(num > 3999 && num < 4000000){
             if(num % 1000 > 0){
@@ -374,7 +374,7 @@ const sinErrorConvertToArabic = (num) => {                      // Esta función
         mensajeArabigo = `<h3 class="reRomano-error">${num} No es un número romano válido</h3>`
     } else if(i>3 || v>1 || x>4 || l>1 || c>4 || d>1 || m>4){
         mensajeArabigo = `<h3 class="reRomano-error">${num} No es un número romano válido</h3>`
-    } else if ((arrayRomanos.includes("IV") || arrayRomanos.includes("IX")) && i>1) {
+    } else if (((arrayRomanos.includes("IV") || arrayRomanos.includes("IX")) && i>1) || ((arrayRomanos.includes("XL") || arrayRomanos.includes("XC")) && x>2) || ((arrayRomanos.includes("CD") || arrayRomanos.includes("CM")) && c>2)) {
         mensajeArabigo = `<h3 class="reRomano-error">${num} No es un número romano válido</h3>`
     } else {
         for (let m=0; m<indexR.length; m++){
